@@ -3,9 +3,9 @@ spring:
     name: broadcast # Sets the name of the Spring Boot application to "broadcast"
 
   datasource:
-    url: jdbc:sqlserver://MIS007\\SQLEXPRESS:1433;databaseName=broadcast_gold;encrypt=false # Database Connection URL
-    username: sa # Database username
-    password: Temp1525!!! # Database password
+    url: jdbc:sqlserver://192.168.10.42;databaseName=broadcast_gold;encrypt=false # Database Connection URL
+    username: surachai # Database username
+    password: "@Gcap266" # Database password
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver # SQL Server JDBC driver class
 
   jpa:
@@ -13,6 +13,10 @@ spring:
       ddl-auto: update # Auto schema update
     show-sql: true # Show SQL statements in logs
     database-platform: org.hibernate.dialect.SQLServerDialect # SQL Server dialect
+
+silver:
+  api-key: ${SILVER_API_KEY} # Silver API key
+  api-url: ${SILVER_API_URL} # Silver API url
 
 server:
   error:

@@ -65,11 +65,11 @@ class GoldPriceGcapController(private val jdbcTemplate: JdbcTemplate) {
             try {
                 val sql =
                         """
-            INSERT INTO GoldPrices
-            (gold99_buy, gold99_sell, old_gold99_buy, old_gold99_sell,
-             gold96_buy, gold96_sell, old_gold96_buy, old_gold96_sell)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """
+                        INSERT INTO GoldPrices
+                        (gold99_buy, gold99_sell, old_gold99_buy, old_gold99_sell,
+                        gold96_buy, gold96_sell, old_gold96_buy, old_gold96_sell)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                        """
                 val rows =
                         jdbcTemplate.update(
                                 sql,

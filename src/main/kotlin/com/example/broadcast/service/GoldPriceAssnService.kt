@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service
 class GoldPriceAssnService {
 
     companion object {
-        private const val URL = "https://www.goldtraders.or.th/"
+        private const val URL = "https://www.goldtraders.or.th/default.aspx"
     }
 
     fun getGoldPrices(): Map<String, String> {
