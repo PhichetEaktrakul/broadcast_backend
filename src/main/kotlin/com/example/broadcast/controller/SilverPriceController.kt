@@ -15,6 +15,7 @@ class SilverPriceController(
         @Value("\${silver.api-url}") private val apiUrl: String
 ) {
 
+    // ================= Get latest silver price =================
     @GetMapping("/latest")
     fun getLatestSilverPrice(): ResponseEntity<Any> {
         val response =
