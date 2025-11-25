@@ -3,9 +3,9 @@ spring:
     name: broadcast # Sets the name of the Spring Boot application to "broadcast"
 
   datasource:
-    url: jdbc:sqlserver://192.168.10.42;databaseName=broadcast_gold;encrypt=false # Database Connection URL
-    username: surachai # Database username
-    password: "@Gcap266" # Database password
+    url: ${SPRING_DATASOURCE_URL} # Database Connection URL
+    username: ${SPRING_DATASOURCE_USERNAME} # Database username
+    password: ${SPRING_DATASOURCE_PASSWORD} # Database password
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver # SQL Server JDBC driver class
 
   jpa:
@@ -21,4 +21,4 @@ silver:
 server:
   error:
     include-message: always # Include exception messages in error responses
-  port: 8080 # Server Port
+  port: ${SERVER_PORT:8080} # Server Port
