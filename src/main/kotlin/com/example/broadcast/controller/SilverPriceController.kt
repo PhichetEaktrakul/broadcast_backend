@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.reactive.function.client.WebClient
 
 @RestController
-@RequestMapping("silver-price")
+@RequestMapping("/api/silver-price")
 class SilverPriceController(
         private val webClient: WebClient,
         @Value("\${silver.api-key}") private val apiKey: String,

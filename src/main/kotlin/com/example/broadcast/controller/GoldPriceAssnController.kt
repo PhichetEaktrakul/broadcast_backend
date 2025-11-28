@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("gold-assn")
+@RequestMapping("/api/gold-assn")
 class GoldPriceAssnController(
         private val jdbcTemplate: JdbcTemplate,
         private val goldScraperService: GoldPriceAssnService

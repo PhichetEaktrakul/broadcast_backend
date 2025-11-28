@@ -13,6 +13,9 @@ spring:
       ddl-auto: update # Auto schema update
     show-sql: true # Show SQL statements in logs
     database-platform: org.hibernate.dialect.SQLServerDialect # SQL Server dialect
+    
+cors:
+  allowed-origins: ${ALLOWED_ORIGINS:http://localhost:5173}
 
 silver:
   api-key: ${SILVER_API_KEY} # Silver API key

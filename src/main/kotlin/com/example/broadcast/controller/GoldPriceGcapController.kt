@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("gold-gcap")
+@RequestMapping("/api/gold-gcap")
 class GoldPriceGcapController(private val jdbcTemplate: JdbcTemplate) {
 
     // ================= Get all gold prices ===================
