@@ -1,14 +1,11 @@
 package com.example.broadcast.service
 
 import org.jsoup.Jsoup
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 
 @Service
-class GoldPriceAssnService {
-
-    companion object {
-        private const val URL = "https://www.goldtraders.or.th/default.aspx"
-    }
+class GoldPriceAssnService(@Value("\${assnprice.web-url}") private val URL: String) {
 
     fun getGoldPrices(): Map<String, String> {
         val doc =

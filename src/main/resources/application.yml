@@ -21,6 +21,9 @@ silver:
   api-key: ${SILVER_API_KEY} # Silver API key
   api-url: ${SILVER_API_URL} # Silver API url
 
+assnprice:
+    web-url: ${ASSNPRICE_WEB_URL:https://www.goldtraders.or.th/default.aspx} # AssnPrice web URL
+  
 server:
   error:
     include-message: always # Include exception messages in error responses
