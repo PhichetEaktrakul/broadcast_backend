@@ -51,3 +51,9 @@ kotlin {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.register<JavaExec>("playwrightInstall") {
+    classpath = configurations.runtimeClasspath.get()
+    mainClass.set("com.microsoft.playwright.CLI")
+    args("install")
+}
