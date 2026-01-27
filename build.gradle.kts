@@ -31,7 +31,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jsoup:jsoup:1.21.2")
+	implementation("com.microsoft.playwright:playwright:1.42.0")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("me.paulschwarz:spring-dotenv:4.0.0")
 	runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")

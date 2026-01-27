@@ -1,27 +1,27 @@
 package com.example.broadcast.service
 
-import org.jsoup.Jsoup
+import com.example.broadcast.util.PlaywrightManager
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 
 @Service
-class GoldPriceAssnService(@Value("\${assnprice.web-url}") private val URL: String) {
+class GoldPriceAssnService(
+        private val pwManager: PlaywrightManager,
+        @Value("\${assnprice.web-url}") private val URL: String
+) {
 
     fun getGoldPrices(): Map<String, String> {
-        val doc =
-                Jsoup.connect(URL)
-                        .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
-                        .timeout(10_000)
-                        .get()
+        val page = pwManager.browser.newPage()
+        page.navigate(URL)
 
-        val sellPrice = doc.select("#DetailPlace_uc_goldprices1_lblBLSell").text()
-        val buyPrice = doc.select("#DetailPlace_uc_goldprices1_lblBLBuy").text()
-        val updateTime = doc.select("#DetailPlace_uc_goldprices1_lblAsTime").text()
+        page.waitForSelector("span:has-text(\"ทองคำแท่ง\")")
 
-        return mapOf(
-                "Sell Price" to sellPrice,
-                "Buy Price" to buyPrice,
-                "Updated Time" to updateTime
-        )
+        val buyPrice = page.textContent("span:has-text(\"รับซื้อ\") + span") ?: ""
+        val sellPrice = page.textContent("span:has-text(\"ขายออก\") + span") ?: ""
+        val updateTime = page.textContent("span[data-slot=select-value]") ?: ""
+
+        page.close()
+
+        return mapOf("buyPrice" to buyPrice, "sellPrice" to sellPrice, "updateTime" to updateTime)
     }
 }

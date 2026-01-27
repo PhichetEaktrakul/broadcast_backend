@@ -64,15 +64,16 @@ class GoldPriceAssnController(
         jdbcTemplate.update(sql, sell, buy, updatedTime)
     }
 
-    // ================= Check every 10 minutes for a new gold price =================
-    @Scheduled(fixedRate = 600_000, initialDelay = 0)
+    // ================= Check every 5 minutes for a new gold price =================
+    @Scheduled(fixedRate = 300_000, initialDelay = 0)
     fun scheduledGoldPriceAssn() {
         println("Scheduler running...")
         try {
             val prices = goldScraperService.getGoldPrices()
-            val sell = prices["Sell Price"]
-            val buy = prices["Buy Price"]
-            val updatedTime = prices["Updated Time"]
+
+            val sell = prices["sellPrice"]
+            val buy = prices["buyPrice"]
+            val updatedTime = prices["updateTime"]
 
             val lastUpdatedTime = getUpdateLatest()
 
@@ -86,5 +87,5 @@ class GoldPriceAssnController(
             System.err.println("Error fetching/saving gold prices: ${e.message}")
         }
     }
-    
+
 }

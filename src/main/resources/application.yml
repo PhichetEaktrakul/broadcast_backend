@@ -22,7 +22,7 @@ silver:
   api-url: ${SILVER_API_URL} # Silver API url
 
 assnprice:
-    web-url: ${ASSNPRICE_WEB_URL:https://www.goldtraders.or.th/default.aspx} # AssnPrice web URL
+    web-url: ${ASSNPRICE_WEB_URL:https://www.goldtraders.or.th} # AssnPrice web URL
   
 server:
   error:
